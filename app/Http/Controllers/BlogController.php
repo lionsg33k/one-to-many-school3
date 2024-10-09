@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,6 @@ class HomeController extends Controller
     public function index()
     {
         //
-
-        $posts = Post::all();
-        $comments = Comment::all();
-
-        return view("author.author_post" , compact("posts" , "comments"));
     }
 
     /**
@@ -35,12 +29,23 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         //
+
+        request()->validate([
+            "blog" => "required",
+            "author_id" => "required",
+        ]);
+
+        Blog::create([
+            "blog"=>$request->blog,
+            "author_id"=>$request->author_id,
+        ]);
+        return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
         //
     }
@@ -48,7 +53,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Blog $blog)
     {
         //
     }
@@ -56,7 +61,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -64,7 +69,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Blog $blog)
     {
         //
     }
