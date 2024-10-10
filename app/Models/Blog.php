@@ -20,4 +20,9 @@ class Blog extends Model
 
         return $this->belongsTo(Author::class);
     }
+
+    public function images () {
+
+        return  $this->hasMany(Image::class);
+    }
 }

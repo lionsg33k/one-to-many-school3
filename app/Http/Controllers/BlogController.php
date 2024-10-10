@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -33,12 +35,29 @@ class BlogController extends Controller
         request()->validate([
             "blog" => "required",
             "author_id" => "required",
+            // "images.*" => "required|mimes:png,jpg,svg|max:2048"
+        ]);
+        $images = $request->images;
+
+        $blog = Blog::create([
+            "blog" => $request->blog,
+            "author_id" => $request->author_id,
         ]);
 
-        Blog::create([
-            "blog"=>$request->blog,
-            "author_id"=>$request->author_id,
-        ]);
+        if ($images) {
+            foreach ($images as $image) {
+
+                $file = file_get_contents($image);
+                $fileName = hash("sha256", $file) . "." . $image->getClientOriginalExtension();
+                Storage::disk("public")->put("images/" . $fileName, $file);
+                Image::create([
+                    "image" => $fileName,
+                    "blog_id" => $blog->id
+                ]);
+            }
+        }
+
+
         return back();
     }
 

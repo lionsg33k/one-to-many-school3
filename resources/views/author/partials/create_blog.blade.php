@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{ route("blogs.store") }}" method="post">
+                <form enctype="multipart/form-data" action="{{ route("blogs.store") }}" method="post">
 
                     @csrf
                     <div class="mb-3">
@@ -16,6 +16,13 @@
                             placeholder="Insert a valid Product name" aria-describedby="emailHelp">
 
                         </textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Images</label>
+                        <input multiple name="images[]" type="file" accept="image/*" class="form-control" id="exampleInputEmail1"
+                            placeholder="Insert a valid Product name" aria-describedby="emailHelp">
+
                     </div>
 
 
