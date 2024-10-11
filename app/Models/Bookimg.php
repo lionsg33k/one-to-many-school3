@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Bookimg extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-
-        "name",
-        "cover",
-        "pdf",
-        "author_id",
-        "category_id",
+        "image",
+        "book_id"
     ];
 }
