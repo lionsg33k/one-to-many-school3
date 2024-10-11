@@ -19,4 +19,11 @@ class Author extends Model
 
         return  $this->hasMany(Blog::class);
     }
+    
+    
+    
+    public function books () {
+        
+        return  $this->hasMany(Book::class);
+    }
 }

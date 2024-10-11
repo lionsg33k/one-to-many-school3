@@ -87,6 +87,9 @@ class BookController extends Controller
     public function show(Book $book)
     {
         //
+
+        
+        return view("library.partials.book_show" , compact("book"));
     }
 
     /**

@@ -43,3 +43,4 @@ Route::post("/category/store", [CategoryController::class, "store"])->name("cate
 //! book
 
 Route::post("/book/store", [BookController::class, "store"])->name("book.store");
+Route::get("/books/show/{book}", [BookController::class, "show"])->name("books.show");

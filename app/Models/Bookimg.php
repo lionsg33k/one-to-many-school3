@@ -13,4 +13,10 @@ class Bookimg extends Model
         "image",
         "book_id"
     ];
+
+
+    public function book () {
+
+        return $this->belongsTo(Book::class);
+    }
 }
