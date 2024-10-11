@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +14,8 @@ class HomeController extends Controller
     {
         //
 
-        $posts = Post::all();
-        $comments = Comment::all();
-
-        return view("author.author_post" , compact("posts" , "comments"));
+        return view("library.library");
     }
-
-    
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +36,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
         //
     }
@@ -50,7 +44,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Book $book)
     {
         //
     }
@@ -58,7 +52,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Book $book)
     {
         //
     }
@@ -66,7 +60,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
         //
     }
