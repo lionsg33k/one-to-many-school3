@@ -40,6 +40,6 @@
     </div>
 
 
-    <a download="{{ asset('storage/pdf/' . $book->pdf) }}" href="{{ asset('storage/pdf/' . $book->pdf) }}" class="px-8 py-2 bg-alpha no-underline text-black rounded-lg" >Download</a>
+    <a download="" href="{{ asset('storage/pdf/' . $book->pdf) }}" class="px-8 py-2 bg-alpha no-underline text-black rounded-lg" >Download</a>
     <iframe class="h-80" src="{{ asset('storage/pdf/' . $book->pdf) }}" frameborder="0"></iframe>
 @endsection

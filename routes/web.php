@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [HomeController::class, "index"])->name("home");
@@ -44,3 +46,13 @@ Route::post("/category/store", [CategoryController::class, "store"])->name("cate
 
 Route::post("/book/store", [BookController::class, "store"])->name("book.store");
 Route::get("/books/show/{book}", [BookController::class, "show"])->name("books.show");
+
+//*  teacher ( many 2 many)
+
+Route::get("/teacher", [TeacherController::class, "index"])->name("teacher.index");
+Route::post("/teacher/store", [TeacherController::class, "store"])->name("teacher.store");
+
+//*  student ( many 2 many)
+
+Route::get("/student", [StudentController::class, "index"])->name("student.index");
+Route::post("/student/store", [StudentController::class, "store"])->name("student.store");
