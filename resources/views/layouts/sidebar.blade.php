@@ -32,6 +32,12 @@
                     <i class="bi bi-card-checklist "></i>
                     <a class="no-underline text-base font-serif text-white/80" href="/books">Digital Library </a>
                 </div>
+
+                
+                <div class="flex items-center gap-x-4">
+                    <i class="bi bi-card-checklist "></i>
+                    <a class="no-underline text-base font-serif text-white/80" href="/event">Event (M2M) </a>
+                </div>
  
 
             </div>
